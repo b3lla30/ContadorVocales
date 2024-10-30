@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de Vocales</title>
+    <script>
+        function contarVocales() {
+            // Obtener la frase del input
+            const frase = document.getElementById("frase").value;
+            let contadorVocales = 0;
+            const vocalesEncontradas = [];
+            const vocales = "aeiouAEIOUáéíóú";
+
+            // Recorrer cada letra de la frase
+            for (let letra of frase) {
+                if (vocales.includes(letra)) {
+                    contadorVocales++;
+                    vocalesEncontradas.push(letra);
+                }
+            }
+
+            // Mostrar los resultados
+            document.getElementById("resultado").innerHTML = `
+                Total de vocales: ${contadorVocales}<br>
+                Vocales encontradas: ${vocalesEncontradas.join(", ")}
+            `;
+        }
+    </script>
+</head>
+<body>
+    <h1>Contador de Vocales</h1>
+    <input type="text" id="frase" placeholder="Ingresa una frase" />
+    <button onclick="contarVocales()">Contar Vocales</button>
+    <div id="resultado"></div>
+</body>
+</html>
